@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #f1e4f3, #fb96c7);
+  padding: 10px;
+  padding-top: 5px;
+  width: 100%;
+  height: 93vh;
+  top: 0;
+}
+
+.title-image {
+  margin-top: -80px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: transparent;
+}
+
+.title-image img {
+  max-width: 100%;
+  width: 400px;
+  height: auto;
+  object-fit: contain;
+}
+
+.skills-profile-container {
+  display: flex;
+  justify-content: center;
+  height: 220px;
+  width: 300px;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.skills-profile-container > div:nth-child(1) {
+  background: linear-gradient(135deg, #fe5d9f, #ff7db5);
+}
+
+.skills-profile-container > div:nth-child(2) {
+  background: linear-gradient(135deg, #ff7db5, #ff9bc7);
+}
+
+.skills-profile-container > div:nth-child(3) {
+  background: linear-gradient(135deg, #f686bd, #f8a0d1);
+}
+
+.skills-profile-container > div:nth-child(4) {
+  background: linear-gradient(135deg, #f8a0d1, #fab5df);
+}
+
+.skills-profile-container > div:nth-child(5) {
+  background: linear-gradient(135deg, #f4bbd3, #f6cde1);
+}
+
+.skills-profile-container > div:nth-child(6) {
+  background: linear-gradient(135deg, #f6cde1, #f8dbe9);
+}
+
+.skills-profile-container > div:nth-child(7) {
+  background: linear-gradient(135deg, #f1e4f3, #f5eaf7);
+}
+
+.skills-profile-container > div:nth-child(8) {
+  background: linear-gradient(135deg, #f5eaf7, #f9f0fb);
+}
+
+.skills-profile-container > div {
+  flex: 0 0 120px;
+  border-radius: 12px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(30, 14, 62, 0.2);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.skills-profile-container .icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.5s;
+  z-index: 2;
+}
+
+.skills-profile-container .icon-container img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+.skills-profile-container .icon-container img[src*="iconAngular.png"] {
+  width: 80px;
+}
+
+.skills-profile-container .icon-container h2 {
+  margin-top: 10px;
+  color: #333;
+  font-weight: 600;
+  font-size: 2px;
+  color: #f4bbd3;
+  font-weight: lighter;
+}
+
+.skills-profile-container > div .content {
+  font-size: 1.5rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  opacity: 0;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  background: linear-gradient(
+    0deg,
+    rgba(251, 150, 199, 0.3) 0%,
+    rgba(251, 150, 199, 0.2) 100%
+  );
+  transform: translatey(100%);
+  transition: all 0.5s ease-in-out;
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.skills-profile-container > div .content span {
+  display: block;
+  margin-top: 5px;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.skills-profile-container > div:hover {
+  flex: 0 0 180px;
+  transform: scale(1.05) translateY(-15px);
+  box-shadow: 0 15px 25px rgba(238, 38, 119, 0.3);
+}
+
+.skills-profile-container > div:hover .content {
+  opacity: 1;
+  transform: translatey(0%);
+  visibility: visible;
+}
+.skills-profile-container > div .content h2 {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.skills-profile-container > div:nth-child(1) .content h2 {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 125, 181, 0.7),
+    0 0 20px rgba(255, 125, 181, 0.5);
+}
+
+.skills-profile-container > div:nth-child(2) .content h2 {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 125, 181, 0.7),
+    0 0 20px rgba(255, 125, 181, 0.5);
+}
+
+.skills-profile-container > div:nth-child(3) .content h2 {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 125, 181, 0.7),
+    0 0 20px rgba(255, 125, 181, 0.5);
+}
+
+.skills-profile-container > div:nth-child(4) .content h2 {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 125, 181, 0.7),
+    0 0 20px rgba(255, 125, 181, 0.5);
+}
+
+.skills-profile-container > div:nth-child(5) .content h2 {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 125, 181, 0.7),
+    0 0 20px rgba(255, 125, 181, 0.5);
+}
+
+.skills-profile-container > div:nth-child(6) .content h2 {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 125, 181, 0.7),
+    0 0 20px rgba(255, 125, 181, 0.5);
+}
+
+.skills-profile-container > div:nth-child(7) .content h2 {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 125, 181, 0.7),
+    0 0 20px rgba(255, 125, 181, 0.5);
+}
+
+.skills-profile-container > div:nth-child(8) .content h2 {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 125, 181, 0.7),
+    0 0 20px rgba(255, 125, 181, 0.5);
+}

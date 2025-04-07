@@ -1,0 +1,63 @@
+<div class="title">
+  <div class="titulo">
+    <img src="\assets\images\contacto.png" />
+  </div>
+
+  <div class="container">
+    <!-- el mensaje de exito -->
+    <div *ngIf="showSuccessMessage" class="success-message">
+      ¡Mensaje enviado correctamente! Gracias por contactar conmigo.
+    </div>
+
+    <form
+      #contactForm
+      (submit)="onSubmit($event)"
+      action="https://formsubmit.co/jvdx98@gmail.com"
+      method="POST"
+    >
+      <input type="hidden" name="_captcha" value="false" />
+
+      <input type="hidden" name="_next" value="false" />
+
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col">
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              placeholder="Your name"
+              required
+            />
+          </div>
+          <div class="col">
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              placeholder="Your email"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <textarea
+          placeholder="Your message"
+          class="form-control"
+          name="message"
+          rows="8"
+          required
+        ></textarea>
+      </div>
+      <button
+        #submitButton
+        type="submit"
+        class="btn btn-lg btn-dark btn-block"
+        *ngIf="!showSuccessMessage"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

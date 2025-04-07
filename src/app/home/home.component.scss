@@ -1,0 +1,105 @@
+// * {
+//   background-color: #f1e4f3;
+// }
+
+.title {
+  background: linear-gradient(to right, #f1e4f3, #fb96c7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 0 5%;
+  margin-top: 40px;
+}
+
+.text-container {
+  flex: 1;
+  padding-right: 20px;
+  align-items: center;
+}
+
+.socialmedia {
+  margin-top: 20px;
+}
+#github {
+  margin: 10px 0;
+  margin-left: 280px;
+  margin-right: 20px;
+}
+
+#github img {
+  height: 40px;
+  width: 40px;
+}
+
+#linkedin img {
+  height: 40px;
+  width: 40px;
+}
+
+h1 {
+  margin: 5px 0;
+  margin-left: 150px;
+  max-width: 600px;
+  font-size: 45px;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: 400px;
+}
+
+/* Ajuste de divA */
+#divA {
+  background: linear-gradient(to right, #f1e4f3, #fb96c7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  padding-bottom: 20px;
+}
+
+#divA img {
+  width: 900px;
+  height: 120px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 70%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typing-effect {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid #212529;
+  width: 0;
+  animation: typing 2s steps(14, end) forwards, blink 0.5s step-end infinite;
+}
+
+strong {
+  text-shadow: 0 0 5px #f84e95;
+  color: #f84e95;
+}

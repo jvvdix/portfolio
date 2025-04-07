@@ -1,0 +1,76 @@
+:host {
+  display: block;
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(to right, #f1e4f3, #fb96c7);
+  overflow: hidden;
+}
+
+.spark {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+
+  span {
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    top: 0;
+    left: 50%;
+    transform-origin: bottom;
+
+    /* Colors for different sparkles */
+    &:nth-child(3n + 1) {
+      --spark-color: #ff9ed2; /* Light pink */
+      --spark-shadow-light: #ff9ed2;
+      --spark-shadow-dark: #ff69b4;
+      filter: drop-shadow(0 0 20px var(--spark-shadow-light))
+        drop-shadow(0 0 40px var(--spark-shadow-dark));
+      &::before {
+        background: var(--spark-color);
+      }
+    }
+
+    &:nth-child(3n + 2) {
+      --spark-color: #c5a3ff; /* Light purple/lilac */
+      --spark-shadow-light: #c5a3ff;
+      --spark-shadow-dark: #9370db;
+      filter: drop-shadow(0 0 20px var(--spark-shadow-light))
+        drop-shadow(0 0 40px var(--spark-shadow-dark));
+      &::before {
+        background: var(--spark-color);
+      }
+    }
+
+    &:nth-child(3n + 3) {
+      --spark-color: #a6d5fa; /* Light blue */
+      --spark-shadow-light: #a6d5fa;
+      --spark-shadow-dark: #87cefa;
+      filter: drop-shadow(0 0 20px var(--spark-shadow-light))
+        drop-shadow(0 0 40px var(--spark-shadow-dark));
+      &::before {
+        background: var(--spark-color);
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      animation: spark-animate 1s ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes spark-animate {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
