@@ -60,7 +60,18 @@ export class HeaderComponent {
 
     // Si es la sección de Projects, usar la navegación normal
     if (item.label === 'Projects') {
-      this.router.navigate([item.routerLink]);
+      this.router.navigate([item.routerLink]).then(() => {
+        // Esperar un momento para que la página se cargue
+        setTimeout(() => {
+          // Ajustar el scroll para compensar la altura del header
+          const headerHeight =
+            document.querySelector('header')?.offsetHeight || 0;
+          window.scrollTo({
+            top: 0, // Empezar desde arriba pero compensando el header
+            behavior: 'smooth',
+          });
+        }, 100);
+      });
     }
     // Para todas las demás secciones que usan fragmentos
     else if (item.fragment) {
@@ -106,7 +117,12 @@ export class HeaderComponent {
   }
 
   navigateTo(link: string): void {
-    this.router.navigate([link]);
-    this.isMobileMenuActive = false;
+    const projectItem = this.menuItems.find((item) => item.routerLink === link);
+    if (projectItem) {
+      this.handleNavigation(projectItem, new Event('click'));
+    } else {
+      this.router.navigate([link]);
+      this.isMobileMenuActive = false;
+    }
   }
 }
