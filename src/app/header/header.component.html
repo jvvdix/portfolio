@@ -13,9 +13,7 @@
         </a>
         <a
           *ngIf="item.label === 'Projects'"
-          [href]="item.routerLink"
-          target="_blank"
-          rel="noopener noreferrer"
+          [routerLink]="item.routerLink"
           [class]="item.class"
           [id]="item.id"
         >
@@ -38,9 +36,7 @@
         </a>
         <a
           *ngIf="item.label === 'Projects'"
-          [href]="item.routerLink"
-          target="_blank"
-          rel="noopener noreferrer"
+          [routerLink]="item.routerLink"
           [class]="item.class"
           [id]="item.id"
         >
