@@ -55,21 +55,50 @@ export class HeaderComponent {
     },
   ];
 
-  scrollTo(sectionId: string, event: Event): void {
+  handleNavigation(item: MenuItem, event: Event): void {
     event.preventDefault();
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = document.querySelector('header')?.offsetHeight || 0; // obtengo la altura del header
-      const topPosition = element.offsetTop - headerHeight; // ajusto la posicion teniendo en cuenta el header para que empiece desde el inicio de los bloques
 
+    // Si es la sección de Projects, usar la navegación normal
+    if (item.label === 'Projects') {
+      this.router.navigate([item.routerLink]);
+    }
+    // Para todas las demás secciones que usan fragmentos
+    else if (item.fragment) {
+      // Si no estamos en la página principal, navegar primero a ella
+      if (this.router.url !== '/' && this.router.url !== '/home') {
+        this.router.navigate(['/'], { fragment: item.fragment }).then(() => {
+          // Pequeño retraso para asegurar carga completa
+          setTimeout(() => this.scrollToElement(item.fragment!), 300);
+        });
+      } else {
+        // Ya estamos en la página principal, solo hacer scroll
+        this.scrollToElement(item.fragment);
+      }
+    }
+
+    this.isMobileMenuActive = false;
+  }
+
+  // Función auxiliar para hacer scroll a un elemento
+  private scrollToElement(elementId: string): void {
+    const element = document.getElementById(elementId);
+    if (element) {
+      const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+      const topPosition = element.offsetTop - headerHeight;
       window.scrollTo({
         top: topPosition,
         behavior: 'smooth',
       });
     }
+  }
 
-    //cierro el menu cuando selecciono un enlace
-    this.isMobileMenuActive = false;
+  // Mantener las funciones existentes por compatibilidad
+  scrollTo(sectionId: string, event: Event): void {
+    this.handleNavigation(
+      this.menuItems.find((item) => item.fragment === sectionId) ||
+        this.menuItems[0],
+      event
+    );
   }
 
   toggleMobileMenu(): void {
@@ -78,6 +107,6 @@ export class HeaderComponent {
 
   navigateTo(link: string): void {
     this.router.navigate([link]);
-    this.isMobileMenuActive = false; // Close the mobile menu after navigation
+    this.isMobileMenuActive = false;
   }
 }

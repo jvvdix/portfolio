@@ -4,18 +4,7 @@
     <ul>
       <li *ngFor="let item of menuItems">
         <a
-          *ngIf="item.label !== 'Projects' && item.fragment"
-          (click)="scrollTo(item.fragment!, $event)"
-          [class]="item.class"
-          [id]="item.id"
-        >
-          {{ item.label }}
-        </a>
-        <a
-          *ngIf="item.label === 'Projects'"
-          (click)="navigateTo(item.routerLink)"
-          target="_blank"
-          rel="noopener noreferrer"
+          (click)="handleNavigation(item, $event)"
           [class]="item.class"
           [id]="item.id"
         >
@@ -29,18 +18,7 @@
     <ul>
       <li *ngFor="let item of menuItems">
         <a
-          *ngIf="item.label !== 'Projects' && item.fragment"
-          (click)="scrollTo(item.fragment!, $event)"
-          [class]="item.class"
-          [id]="item.id"
-        >
-          {{ item.label }}
-        </a>
-        <a
-          *ngIf="item.label === 'Projects'"
-          [href]="item.routerLink"
-          target="_blank"
-          rel="noopener noreferrer"
+          (click)="handleNavigation(item, $event)"
           [class]="item.class"
           [id]="item.id"
         >
