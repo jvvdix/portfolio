@@ -58,31 +58,31 @@ export class HeaderComponent {
   handleNavigation(item: MenuItem, event: Event): void {
     event.preventDefault();
 
-    // Si es la sección de Projects, usar la navegación normal
+    //  si estoy en la sección de proyectos, usar la navegación normal en vez de scroll
     if (item.label === 'Projects') {
       this.router.navigate([item.routerLink]).then(() => {
-        // Esperar un momento para que la página se cargue
+        // espero a que la pagina se cargue antes de poder hacer scroll
         setTimeout(() => {
-          // Ajustar el scroll para compensar la altura del header
+          // aqui tengo en cuenta el header para q no se me corte el contenido
           const headerHeight =
             document.querySelector('header')?.offsetHeight || 0;
           window.scrollTo({
-            top: 0, // Empezar desde arriba pero compensando el header
+            top: 0,
             behavior: 'smooth',
           });
         }, 100);
       });
     }
-    // Para todas las demás secciones que usan fragmentos
+    // para todas las demas secciones
     else if (item.fragment) {
-      // Si no estamos en la página principal, navegar primero a ella
+      // si no estoy en la main, navego primero a ella
       if (this.router.url !== '/' && this.router.url !== '/home') {
         this.router.navigate(['/'], { fragment: item.fragment }).then(() => {
-          // Pequeño retraso para asegurar carga completa
+          // el mismo retraso que antes
           setTimeout(() => this.scrollToElement(item.fragment!), 300);
         });
       } else {
-        // Ya estamos en la página principal, solo hacer scroll
+        // si ya estoy en la main, solo hago el scroll
         this.scrollToElement(item.fragment);
       }
     }
@@ -90,7 +90,7 @@ export class HeaderComponent {
     this.isMobileMenuActive = false;
   }
 
-  // Función auxiliar para hacer scroll a un elemento
+  // funcion para el scroll que vuelve a tener en cuenta el header
   private scrollToElement(elementId: string): void {
     const element = document.getElementById(elementId);
     if (element) {
@@ -103,7 +103,7 @@ export class HeaderComponent {
     }
   }
 
-  // Mantener las funciones existentes por compatibilidad
+  // compatibilidad con el routerLink de angular, para que funcione el scroll al hacer click en los enlaces
   scrollTo(sectionId: string, event: Event): void {
     this.handleNavigation(
       this.menuItems.find((item) => item.fragment === sectionId) ||
