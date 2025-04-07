@@ -13,7 +13,7 @@
         </a>
         <a
           *ngIf="item.label === 'Projects'"
-          [href]="item.routerLink"
+          (click)="navigateTo(item.routerLink)"
           target="_blank"
           rel="noopener noreferrer"
           [class]="item.class"

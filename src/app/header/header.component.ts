@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 interface MenuItem {
   label: string;
-  routerLink?: string;
+  routerLink: string;
   href?: string;
   class?: string;
   id?: string;
@@ -20,6 +20,7 @@ interface MenuItem {
 })
 export class HeaderComponent {
   isMobileMenuActive = false;
+  constructor(private router: Router) {}
 
   menuItems: MenuItem[] = [
     {
@@ -73,5 +74,10 @@ export class HeaderComponent {
 
   toggleMobileMenu(): void {
     this.isMobileMenuActive = !this.isMobileMenuActive;
+  }
+
+  navigateTo(link: string): void {
+    this.router.navigate([link]);
+    this.isMobileMenuActive = false; // Close the mobile menu after navigation
   }
 }
