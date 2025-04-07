@@ -58,7 +58,7 @@ export class HeaderComponent {
   handleNavigation(item: MenuItem, event: Event): void {
     event.preventDefault();
 
-    //  si estoy en la sección de proyectos, usar la navegación normal en vez de scroll
+    //  si estoy en la sección de proyectos, usar la navegación normal y usa el router para llevarnos a ella
     if (item.label === 'Projects') {
       this.router.navigate([item.routerLink]).then(() => {
         // espero a que la pagina se cargue antes de poder hacer scroll
@@ -75,7 +75,7 @@ export class HeaderComponent {
     }
     // para todas las demas secciones
     else if (item.fragment) {
-      // si no estoy en la main, navego primero a ella
+      // si no estoy en la main, navego primero a ella ES DECIR, si estás en proyects y quieres ir a experience, primero navego a home y luego hago scroll a experience
       if (this.router.url !== '/' && this.router.url !== '/home') {
         this.router.navigate(['/'], { fragment: item.fragment }).then(() => {
           // el mismo retraso que antes
