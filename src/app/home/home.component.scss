@@ -1,13 +1,15 @@
-// * {
-//   background-color: #f1e4f3;
-// }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .title {
   background: linear-gradient(to right, #f1e4f3, #fb96c7);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 0 5%;
   margin-top: 40px;
 }
@@ -15,33 +17,50 @@
 .text-container {
   flex: 1;
   padding-right: 20px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 }
 
-.socialmedia {
-  margin-top: 20px;
-}
-#github {
-  margin: 10px 0;
-  margin-left: 280px;
-  margin-right: 20px;
-}
-
-#github img {
-  height: 40px;
-  width: 40px;
-}
-
-#linkedin img {
-  height: 40px;
-  width: 40px;
+.text-wrapper {
+  margin-left: 80px;
 }
 
 h1 {
   margin: 5px 0;
-  margin-left: 150px;
-  max-width: 600px;
   font-size: 45px;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+h1:hover {
+  color: #f84e95;
+}
+
+strong {
+  text-shadow: 0 0 5px #f84e95;
+  color: #f84e95;
+}
+
+.socialmedia {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  margin-left: calc(80px + 130px);
+}
+
+#github img,
+#linkedin img {
+  height: 40px;
+  width: 40px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+#github img:hover,
+#linkedin img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 5px #f84e95);
 }
 
 .image-container {
@@ -55,51 +74,158 @@ h1 {
   max-width: 100%;
   max-height: 80vh;
   width: 400px;
+  transition: transform 0.5s ease;
 }
 
-/* Ajuste de divA */
+.image-container img:hover {
+  transform: scale(1.05);
+}
+
 #divA {
   background: linear-gradient(to right, #f1e4f3, #fb96c7);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 0px;
   padding-bottom: 20px;
 }
 
 #divA img {
-  width: 900px;
-  height: 120px;
+  width: 90%;
+  max-width: 900px;
+  height: auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  transition: transform 0.5s ease;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 70%;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
+#divA img:hover {
+  transform: rotate(5deg);
 }
 
 .typing-effect {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 4px solid #212529;
-  width: 0;
-  animation: typing 2s steps(14, end) forwards, blink 0.5s step-end infinite;
+  display: inline;
+  white-space: normal;
+  overflow: visible;
 }
 
-strong {
-  text-shadow: 0 0 5px #f84e95;
-  color: #f84e95;
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .text-wrapper {
+    margin-left: 50px;
+  }
+
+  .socialmedia {
+    margin-left: calc(50px + 120px);
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1024px) {
+  .socialmedia {
+    margin-left: calc(50px + 110px);
+  }
+}
+
+@media screen and (min-width: 820px) and (max-width: 999px) {
+  .socialmedia {
+    margin-left: calc(50px + 90px);
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 819px) {
+  .socialmedia {
+    margin-left: calc(50px + 80px);
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    flex-direction: column;
+    min-height: auto;
+    padding: 40px 5%;
+  }
+
+  .text-container {
+    width: 100%;
+    padding-right: 0;
+    padding-bottom: 20px;
+    align-items: center;
+  }
+
+  .text-wrapper {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .socialmedia {
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .text-container {
+    width: 100%;
+    padding-right: 0;
+    padding-bottom: 2px;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 25px;
+  }
+
+  .text-wrapper {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .socialmedia {
+    justify-content: center;
+    margin-left: 0;
+    margin-top: 5px;
+    gap: 10px;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+
+  .image-container img {
+    width: 200px;
+    max-height: 60vh;
+    margin-left: 20px;
+  }
+
+  #github img,
+  #linkedin img {
+    width: 20px;
+    height: 20px;
+  }
+
+  #divA img {
+    display: none;
+  }
 }

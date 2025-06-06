@@ -1,30 +1,41 @@
 <header>
-  <div class="logo">JMS</div>
+  <a class="logo" href="#home">JMS</a>
   <nav>
     <ul>
       <li *ngFor="let item of menuItems">
         <a
-          (click)="handleNavigation(item, $event)"
+          [attr.id]="item.id"
           [class]="item.class"
-          [id]="item.id"
+          [routerLink]="item.routerLink"
+          [fragment]="item.fragment"
+          (click)="handleNavigation(item, $event)"
         >
           {{ item.label }}
         </a>
       </li>
     </ul>
   </nav>
-  <i class="fa-solid fa-bars hamburger" (click)="toggleMobileMenu()"></i>
-  <div class="mobile-menu" [class.active]="isMobileMenuActive">
-    <ul>
-      <li *ngFor="let item of menuItems">
-        <a
-          (click)="handleNavigation(item, $event)"
-          [class]="item.class"
-          [id]="item.id"
-        >
-          {{ item.label }}
-        </a>
-      </li>
-    </ul>
+  <div class="hamburger" (click)="toggleMobileMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="iconos">
+    <!-- Your icons/links here -->
   </div>
 </header>
+
+<div class="mobile-menu" [class.active]="isMobileMenuActive">
+  <div class="close-button" (click)="toggleMobileMenu()">×</div>
+  <ul>
+    <li *ngFor="let item of menuItems">
+      <a
+        [attr.id]="item.id"
+        [class]="item.class"
+        [routerLink]="item.routerLink"
+        [fragment]="item.fragment"
+        (click)="handleNavigation(item, $event)"
+      >
+        {{ item.label }}
+      </a>
+    </li>
+  </ul>
+</div>

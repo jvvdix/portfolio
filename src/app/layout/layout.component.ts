@@ -15,7 +15,14 @@ export class LayoutComponent implements OnInit {
   constructor(private renderer: Renderer2) {}
 
   ngOnInit() {
+    this.setVhProperty();
+    window.addEventListener('resize', () => this.setVhProperty());
     this.addSparkListener();
+  }
+
+  private setVhProperty() {
+    const vh = window.innerHeight * 0.01;
+    this.renderer.setStyle(document.documentElement, '--vh', `${vh}px`);
   }
 
   private addSparkListener() {
@@ -46,6 +53,6 @@ export class LayoutComponent implements OnInit {
       }, 1000);
     };
 
-    const clickListener = this.renderer.listen(container, 'click', createSpark);
+    this.renderer.listen(container, 'click', createSpark);
   }
 }
