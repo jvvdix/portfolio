@@ -1,3 +1,4 @@
+This was the first portfolio I ever created. Now is deprecated but I keep it as a reminder :) 
 # Portfolio
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
